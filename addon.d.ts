@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 type JSONResponse = { 
     result: "1" | "0";
     return_value: string;
@@ -41,11 +43,15 @@ declare namespace Addon {
 
     /**
      * Reads registry value.
+     * 
+     * @deprecated Not implemented yet.
      */
     function ReadReg <P extends string> (path: P): JSONResponse;
     
     /**
      * Changes registry value.
+     * 
+     * @deprecated Not implemented yet.
      */
     function SetReg <P extends string> (path: P, value: string): void;
 
