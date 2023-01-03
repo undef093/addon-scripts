@@ -1,3 +1,5 @@
 import { addon as Addon } from "../lib/lib";
 
-Cheat.Print(`hwid: ${Addon.GetHWID()}\n`);
+const hwid = Addon.GetHWID();
+
+Cheat.Print(`result: ${hwid.result}\nvalue: ${hwid.return_value}\n`);
