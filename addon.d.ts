@@ -5,7 +5,7 @@ type JSONResponse = {
     return_value: string;
 }
 
-type ExposedFunction = 'http.get' | 'http.post' | 'clipboard.get' | 'clipboard.set' | 'utils.get_hwid' | 'utils.get_module_handle' | 'utils.pattern_scan' | 'render.server_hitboxes';
+type ExposedFunction = 'http.get' | 'http.post' | 'clipboard.get' | 'clipboard.set' | 'filesystem.write' | 'filesystem.append' | 'filesystem.read' | 'utils.get_hwid' | 'utils.get_module_handle' | 'utils.pattern_scan' | 'render.server_hitboxes';
 
 type JSONInput<F extends ExposedFunctions, N extends string, P extends string, D extends string> = { 
     func: F;
@@ -42,7 +42,7 @@ declare namespace Addon {
     function GetModuleHandle <M extends DllModule> (module: M): JSONResponse;
 
     /**
-     * Gets clipboard content. 
+     * Retrieves clipboard content. 
      */
     function GetClipboard(): JSONResponse;
 
@@ -50,6 +50,21 @@ declare namespace Addon {
      * Sets clipboard content. 
      */
     function SetClipboard <D extends string> (data: D): JSONResponse;
+
+    /**
+     * Writes data to file.
+     */
+    function WriteFile <P extends string, D extends string> (path: P, data: D): JSONResponse;
+
+    /**
+     * Appends data to file.
+     */
+    function AppendFile <P extends string, D extends string> (path: P, data: D): JSONResponse;
+
+    /**
+     * Retrieves file contents.
+     */
+    function ReadFile <P extends string> (path: P): JSONResponse;
 
     /**
      * Reads registry value.
