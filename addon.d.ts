@@ -42,7 +42,7 @@ declare namespace Addon {
     function GetModuleHandle <M extends DllModule> (module: M): JSONResponse;
 
     /**
-     * Retrieves clipboard content. 
+     * Retrieves clipboard contents. 
      */
     function GetClipboard(): JSONResponse;
 
@@ -62,7 +62,7 @@ declare namespace Addon {
     function AppendFile <P extends string, D extends string> (path: P, data: D): JSONResponse;
 
     /**
-     * Retrieves file contents.
+     * Reads file contents.
      */
     function ReadFile <P extends string> (path: P): JSONResponse;
 
