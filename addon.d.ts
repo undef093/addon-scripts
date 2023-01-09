@@ -5,7 +5,7 @@ type JSONResponse = {
     return_value: string;
 }
 
-type ExposedFunction = 'http.get' | 'http.post' | 'utils.get_hwid' | 'utils.get_module_handle' | 'utils.pattern_scan' | 'render.server_hitboxes';
+type ExposedFunction = 'http.get' | 'http.post' | 'utils.get_clipboard_contents' | 'utils.set_clipboard_contents'  | 'utils.get_hwid' | 'utils.get_module_handle' | 'utils.pattern_scan' | 'render.server_hitboxes';
 
 type JSONInput<F extends ExposedFunctions, N extends string, P extends string, D extends string> = { 
     func: F;
@@ -40,6 +40,16 @@ declare namespace Addon {
      * Retrieves a module handle for the specified module.
      */
     function GetModuleHandle <M extends DllModule> (module: M): JSONResponse;
+
+    /**
+     * Gets clipboard content. 
+     */
+    function GetClipboard(): JSONResponse;
+
+    /**
+     * Sets clipboard content. 
+     */
+    function SetClipboard <D extends string> (data: D): JSONResponse;
 
     /**
      * Reads registry value.
